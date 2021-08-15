@@ -26,7 +26,14 @@ export const BoxTitleCar = styled.div`
     justify-content: space-between;
     background: rgb(245, 245, 245);
     border-bottom: 1px solid rgb(211, 211, 211);
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;TitleCar
+`;
+
+export const TitleCar = styled.h3`
+    font-weight: 600;
+    font-size: ${props => props.size || '1rem'};
+    padding-left: .4rem;
+    color: ${props => props.color || 'black'};
 `;
 
 export const BoxCar = styled.div`
@@ -46,14 +53,12 @@ export const BoxCar = styled.div`
 
     &:hover ${BoxTitleCar} {
         background: rgb(91, 192, 222);
+    }
+
+    &:hover ${TitleCar} {
+        background: rgb(91, 192, 222);
         color: white;
     }
-`;
-
-export const TitleCar = styled.h3`
-    font-weight: 600;
-    font-size: ${props => props.size || '1rem'};
-    padding-left: .4rem;
 `;
 
 export const Add = styled.button`
@@ -135,8 +140,25 @@ export const HeaderTitle = styled.div`
     height: 35px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: rgb(91, 192, 222);
 `;
+
+export const Remove = styled.button`
+    font: 300 1rem 'Roboto', Arial;
+    color:  rgb(91, 192, 222);
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: .9rem;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: .4rem;
+    border: none;
+    cursor: pointer;
+`;
+
 
 export const ItemInfo = styled.div`
     width: 100%;
