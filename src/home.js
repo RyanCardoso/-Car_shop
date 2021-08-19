@@ -14,6 +14,7 @@ class Home extends Component {
                 carMaker: "Volkswagen",
                 price: 144000,
                 type: "sedan",
+                isDisplay: true
             },
             {
                 id: 1,
@@ -21,6 +22,7 @@ class Home extends Component {
                 carMaker: "Volkswagen",
                 price: 70000,
                 type: "Hatch",
+                isDisplay: true
             },
             {
                 id: 2,
@@ -28,6 +30,7 @@ class Home extends Component {
                 carMaker: "Volkswagen",
                 price: 123000,
                 type: "SUV",
+                isDisplay: true
             },
             {
                 id: 3,
@@ -35,6 +38,7 @@ class Home extends Component {
                 carMaker: "Volkswagen",
                 price: 146000,
                 type: "SUV",
+                isDisplay: true
             },
             {
                 id: 4,
@@ -42,6 +46,7 @@ class Home extends Component {
                 carMaker: "Honda",
                 price: 115000,
                 type: "Sedan",
+                isDisplay: true
             },
             {
                 id: 5,
@@ -49,6 +54,7 @@ class Home extends Component {
                 carMaker: "Toyota",
                 price: 184000,
                 type: "Sedan",
+                isDisplay: true
             },
             {
                 id: 6,
@@ -56,6 +62,7 @@ class Home extends Component {
                 carMaker: "Toyota",
                 price: 123000,
                 type: "SUV",
+                isDisplay: true
             },
             {
                 id: 7,
@@ -63,6 +70,7 @@ class Home extends Component {
                 carMaker: "Jeep",
                 price: 132000,
                 type: "SUV",
+                isDisplay: true
             },
             {
                 id: 8,
@@ -70,19 +78,25 @@ class Home extends Component {
                 carMaker: "Volkswagen",
                 price: 138000,
                 type: "Hatch",
+                isDisplay: true
             }
         ],
     }
 
     addCar = (id) => {
         const { cars } = this.state;
-        const filter = cars.filter(item => item.id === id)
+        const filter = cars.find(item => item.id === id)
 
+        filter.isDisplay = false;
         this.setState({ carsAdd: this.state.carsAdd.concat(filter) })
     }
 
     removeCar(ev, id) {
         ev.preventDefault();
+        const { cars } = this.state;
+        const filter = cars.find(item => item.id === id)
+        filter.isDisplay = true;
+
         this.setState({
             carsAdd: this.state.carsAdd.filter(item => item.id !== id)
         })
@@ -143,6 +157,7 @@ class Home extends Component {
                             draggable={true}
                             onDragStart={this.dragStart}
                             onDragOver={this.dragOver}
+                            check={item.isDisplay}
                         >
                             <S.BoxTitleCar>
                                 <S.TitleCar>{item.name}</S.TitleCar>

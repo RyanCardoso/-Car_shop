@@ -44,7 +44,8 @@ export const BoxCar = styled.div`
     transition: .4s;
     cursor: grab;
     user-select: none;
-    pointer-events: ${props => props.check ? 'none' : 'auto'};
+    pointer-events: ${props => props.check ? 'auto' : 'none'};
+    opacity: ${props => props.check ? '1' : '0.3'};
 
     &:hover {
         box-shadow: 0px 14px 15px rgba(0,0,0, .3);
